@@ -22,7 +22,7 @@ num.forEach((numeros) => {
 operacao.forEach((op) => {
     op.addEventListener("click", (e) => {
         pontos = false
-        
+
         if (sinal == false) {
             if (input.value.length == 0) {
                 if (op.value == "*" || op.value == "/") return
@@ -39,10 +39,21 @@ operacao.forEach((op) => {
 })
 
 
+
+
 calcular.addEventListener("click", () => {
     if (input.value.length > 0) {
-        input.value = eval(input.value)
+       
+        let calculo = eval(input.value.replace("," , "."))
+        let res = String(calculo)
+        let a = res.replace("." , ",")
+        input.value = a
+      
+        
     }
+
+    
+    
 
 })
 
@@ -64,6 +75,7 @@ let pontos = false
 
 ponto.addEventListener("click" , ()=>{
     if(!pontos){
+       
         input.value += ponto.innerText
         pontos = true
     }
